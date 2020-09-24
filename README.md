@@ -32,3 +32,11 @@
    4. Vist localhost:4200
 
 ## Commit Changes to GitHub
+
+1. **Always** Checkout New Feature Branch
+   1. Create a new branch
+      git checkout -b feature_name
+   2. Add changes to branch
+   3. When the feature is finished, push branch to remote repoistory
+   4. Create pull reqest on GitHub
+   5. When the merge is reviewed, it will be automatically deployed to the EC2 server
