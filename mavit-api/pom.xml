@@ -106,7 +106,6 @@
 						<goals><goal>copy-resources</goal></goals>
 						<configuration>
 							<outputDirectory>src/main/resources/static</outputDirectory>
-<!--							<outputDirectory>${project.build.directory}/static/</outputDirectory >-->
 							<resources>
 								<resource>
 									<directory>../mavit-client/dist/mavit-client</directory>
