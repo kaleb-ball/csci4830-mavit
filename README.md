@@ -16,7 +16,8 @@
       3. Run ``mvn clean install``
 7. Open Client in IDE
    1. VSCode
-   2. Run ``npm clean install``
+   2. Open /mavit-api/ as a new project
+   3. Run ``npm clean install``
   
 8. Setup Local Database
    1. Install Docker
