@@ -11,9 +11,9 @@
 5. Clone Mavit Repository
 6. Open API in IDE
    1. IntelliJ
-      a. Select "Open Project From Existing Sources" and open the pom.xml file in /mavit-api
-      b. Enable Annotation Processing
-      c. Run ``mvn clean install``
+      1. Select "Open Project From Existing Sources" and open the pom.xml file in /mavit-api
+      2. Enable Annotation Processing
+      3. Run ``mvn clean install``
 7. Open Client in IDE
    1. VSCode
    2. Run ``npm clean install``
@@ -38,11 +38,11 @@
 
 1. **Always** Checkout New Feature Branch
    1. Create a new branch
-      ``git checkout -b feature_name``
+      - ``git checkout -b feature_name``
    2. Add changes to branch
-      ``git add filename`` or ``git add .`` to add all
+      - ``git add filename`` or ``git add .`` to add all
    3. When the feature is finished, push branch to remote repoistory
-      ``git commit -m "Message"``
-      ``git push remote origin``
+      - ``git commit -m "Message"``
+      - ``git push remote origin``
    4. Create pull reqest on GitHub
    5. When the merge is reviewed, it will be automatically deployed to the EC2 server
