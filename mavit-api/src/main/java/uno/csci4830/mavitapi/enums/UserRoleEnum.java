@@ -1,5 +1,6 @@
 package uno.csci4830.mavitapi.enums;
 
-public enum UserRole {
+public enum UserRoleEnum {
+
     ADMIN, MODERATOR, USER
 }

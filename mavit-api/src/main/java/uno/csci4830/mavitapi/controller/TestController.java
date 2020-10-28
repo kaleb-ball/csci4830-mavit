@@ -1,4 +1,4 @@
-package uno.csci4830.mavitapi.controllers;
+package uno.csci4830.mavitapi.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
