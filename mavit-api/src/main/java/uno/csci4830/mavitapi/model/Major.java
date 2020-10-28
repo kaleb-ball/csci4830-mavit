@@ -1,3 +1,4 @@
+
 package uno.csci4830.mavitapi.model;
 
 import lombok.Getter;
