@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "mavit.app.jwtExpirationInMs",
+      "type": "java.lang.String",
+      "description": "Time for Jwt to expire in miliseconds"
+    },
+    {
+      "name": "mavit.app.jwtSecret",
+      "type": "java.lang.String",
+      "description": "JWT generating string."
+    }
+  ] }

@@ -2,8 +2,8 @@
 package uno.csci4830.mavitapi.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import uno.csci4830.mavitapi.enums.UserRoleEnum;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -16,6 +16,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(uniqueConstraints = {
             @UniqueConstraint(columnNames = "username"),
             @UniqueConstraint(columnNames = "email")
@@ -35,7 +36,7 @@ public class User {
     private String lastName;
 
     @NotBlank
-    @Size(max=50)
+    @Size(max=20)
     private String username;
 
     @NotBlank
@@ -55,6 +56,6 @@ public class User {
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<UserRole> role = new HashSet<>();
+    private Set<Role> roles = new HashSet<>();
 
 }
