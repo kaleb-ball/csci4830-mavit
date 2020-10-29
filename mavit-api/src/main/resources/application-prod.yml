@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:mysql://mavit.cmfiwl8clalu.us-east-1.rds.amazonaws.com:3306/mavit
     data-username: ${PROD_DB_USERNAME}
-    data-password: ${PROD_DB_PASSWORD}}
+    data-password: ${PROD_DB_PASSWORD}
 
 mavit:
   app:
