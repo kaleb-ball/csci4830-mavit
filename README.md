@@ -44,6 +44,6 @@
       - ``git add filename`` or ``git add .`` to add all
    3. When the feature is finished, push branch to remote repoistory
       - ``git commit -m "Message"``
-      - ``git push remote origin``
+      - ``git push origin feature_name``
    4. Create pull reqest on GitHub
    5. When the merge is reviewed, it will be automatically deployed to the EC2 server
