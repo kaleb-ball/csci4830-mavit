@@ -15,22 +15,37 @@
 	<description>Demo project for Spring Boot</description>
 
 	<profiles>
+<!--		<profile>-->
+<!--			<id>allow-snapshots</id>-->
+<!--			<activation><activeByDefault>true</activeByDefault></activation>-->
+<!--			<repositories>-->
+<!--				<repository>-->
+<!--					<id>snapshots-repo</id>-->
+<!--					<url>https://aws.oss.sonatype.org/content/repositories/snapshots</url>-->
+<!--					<releases><enabled>false</enabled></releases>-->
+<!--					<snapshots><enabled>true</enabled></snapshots>-->
+<!--				</repository>-->
+<!--				<repository>-->
+<!--					<id>io.spring.repo.maven.release</id>-->
+<!--					<url>https://repo.spring.io/release/</url>-->
+<!--					<snapshots><enabled>false</enabled></snapshots>-->
+<!--				</repository>-->
+<!--			</repositories>-->
+<!--		</profile>-->
 		<profile>
-			<id>allow-snapshots</id>
-			<activation><activeByDefault>true</activeByDefault></activation>
-			<repositories>
-				<repository>
-					<id>snapshots-repo</id>
-					<url>https://aws.oss.sonatype.org/content/repositories/snapshots</url>
-					<releases><enabled>false</enabled></releases>
-					<snapshots><enabled>true</enabled></snapshots>
-				</repository>
-				<repository>
-					<id>io.spring.repo.maven.release</id>
-					<url>https://repo.spring.io/release/</url>
-					<snapshots><enabled>false</enabled></snapshots>
-				</repository>
-			</repositories>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<activatedProperties>dev</activatedProperties>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<activatedProperties>prod</activatedProperties>
+			</properties>
 		</profile>
 	</profiles>
 
@@ -110,6 +125,11 @@
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
 			<version>2.0.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 
