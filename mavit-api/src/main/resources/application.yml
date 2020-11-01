@@ -5,6 +5,8 @@ spring:
     active: @activatedProperties@
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
+    data-username: ${PROD_DB_USERNAME}
+    data-password: ${PROD_DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
