@@ -60,8 +60,8 @@ public class AuthenticationService {
 
     public MessageResponse registerUser(SignupRequest signupRequest) {
         User user = new User();
-        user = populatePersonalDetails(user, signupRequest);
-        user = populateSchoolDetails(user, signupRequest);
+        populatePersonalDetails(user, signupRequest);
+        populateSchoolDetails(user, signupRequest);
         Set<Role> roles = new HashSet<>();
         Role role = roleRepository.findByName(UserRoleEnum.USER).orElseThrow(
                 () -> new RuntimeException("Error: Role Not Found")
