@@ -18,6 +18,8 @@ import uno.csci4830.mavitapi.security.jwt.AuthEntryPointJwt;
 import uno.csci4830.mavitapi.security.jwt.AuthTokenFilter;
 import uno.csci4830.mavitapi.security.services.UserDetailsServiceImpl;
 
+import java.util.Arrays;
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -37,9 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
         authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
-
-
-
+    
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {

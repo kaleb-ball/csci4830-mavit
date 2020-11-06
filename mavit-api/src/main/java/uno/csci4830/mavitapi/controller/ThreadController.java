@@ -21,8 +21,6 @@ public class ThreadController {
     @Autowired
     private ThreadService threadService;
 
-    SecurityContextHolder securityContextHolder;
-
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody CreateThreadRequest createThreadRequest) {
         try {

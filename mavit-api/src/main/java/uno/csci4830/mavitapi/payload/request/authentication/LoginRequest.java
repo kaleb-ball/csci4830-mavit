@@ -1,4 +1,4 @@
-package uno.csci4830.mavitapi.payload.request;
+package uno.csci4830.mavitapi.payload.request.authentication;
 
 import lombok.Getter;
 import lombok.Setter;

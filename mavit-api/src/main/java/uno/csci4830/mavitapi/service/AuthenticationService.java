@@ -2,7 +2,6 @@
 package uno.csci4830.mavitapi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -13,8 +12,8 @@ import org.springframework.stereotype.Service;
 import uno.csci4830.mavitapi.enums.UserRoleEnum;
 import uno.csci4830.mavitapi.model.Role;
 import uno.csci4830.mavitapi.model.User;
-import uno.csci4830.mavitapi.payload.request.LoginRequest;
-import uno.csci4830.mavitapi.payload.request.SignupRequest;
+import uno.csci4830.mavitapi.payload.request.authentication.LoginRequest;
+import uno.csci4830.mavitapi.payload.request.authentication.SignupRequest;
 import uno.csci4830.mavitapi.payload.response.JwtResponse;
 import uno.csci4830.mavitapi.payload.response.MessageResponse;
 import uno.csci4830.mavitapi.repository.RoleRepository;
