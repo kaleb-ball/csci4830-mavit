@@ -2,6 +2,7 @@ package uno.csci4830.mavitapi.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import uno.csci4830.mavitapi.payload.request.thread.CreateThreadRequest;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,5 +44,19 @@ public class Thread {
 
     @NotBlank
     private Boolean enabled;
+
+    public Thread()
+    {
+
+    }
+    public Thread(CreateThreadRequest ctr)
+    {
+        setTitle(ctr.getTitle());
+        setDescription(ctr.getDescription());
+        setCreatedBy(ctr.getCreateUsername());
+        setEnabled(true);
+        setCreatedDateTime(LocalDateTime.now());
+
+    }
 
 }
