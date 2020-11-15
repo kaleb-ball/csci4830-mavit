@@ -17,7 +17,8 @@ public class ThreadService {
     private ThreadRepository threadRepository;
 
     public MessageResponse createThread(CreateThreadRequest createThreadRequest) {
-
+       Thread thread = new Thread(createThreadRequest);
+       threadRepository.save(thread);
         return new MessageResponse("Thread created successfully");
     }
 
