@@ -1,0 +1,17 @@
+<div class="container h-100 mt-5">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-8">
+            <div class="card mt-5 mb-5 text-center">
+                <h4 class="card-title mb-4 mt-5 text-center">404</h4>
+                <div class="card-body">
+                    <div class="card-text text-center mb-5">
+                        The Page You Were Looking for Was Not Found
+                    </div>
+                    <a  *ngIf="!isLoggedIn" class="btn btn-dark" [routerLink]="'/login'">Login</a>
+                    <a  *ngIf="isLoggedIn" class="btn btn-dark" [routerLink]="'/home'">Home</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

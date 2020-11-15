@@ -44,7 +44,7 @@ public class User {
     private String lastName;
 
     @NotBlank
-    @Size(max=20)
+    @Size(min=6, max=20)
     private String username;
 
     @NotBlank
@@ -53,7 +53,7 @@ public class User {
     private String email;
 
     @NotBlank
-    @Size(max=50)
+    @Size(min = 6, max=20)
     private String password;
 
     @NotBlank

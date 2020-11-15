@@ -7,20 +7,37 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormBuilder, ReactiveFormsModule, FormControl } from '@angular/forms';
+import { HttpClient, HttpClientModule, HttpHandler, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
+import { HomeComponent } from './components/home/home.component';
+import { UnauthorizedComponent } from './common/unauthorized/unauthorized.component';
+import { NotFoundComponent } from './common/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     LoginComponent,
-    NavbarComponent
-  ],
+    NavbarComponent,
+    HomeComponent,
+    UnauthorizedComponent,
+    NotFoundComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    FormBuilder,
+    HttpClient,
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
