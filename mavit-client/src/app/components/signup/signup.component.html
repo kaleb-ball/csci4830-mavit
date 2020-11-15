@@ -3,33 +3,71 @@
         <div class="col-8">
             <div class="card mt-5 mb-5">
                 <div class="card-body">
-                    <a href="" class="float-right btn btn-outline-dark" [routerLink]="'/login'">Login</a>
                     <h4 class="card-title mb-4 text-center">Sign Up</h4>
-                    <form>
+                    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="firstname">First Name</label>
-                                <input type="text" class="form-control" id=firstname>
+                                <input type="text" class="form-control" formControlName=firstname
+                                [ngClass]="{'is-invalid': submitted && f.firstname.errors }" >
+                                <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                                    <div *ngIf="f.firstname.errors.required">Required</div>
+                                    <div *ngIf="f.firstname.errors.maxlength">Must Be Less Than 50 Characters</div>
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="lastname">Last Name</label>
-                                <input type="text" class="form-control" id=lastname>
+                                <input type="text" class="form-control" formControlName=lastname
+                                [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" >
+                                <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                                    <div *ngIf="f.lastname.errors.required">Required</div>
+                                    <div *ngIf="f.lastname.errors.maxlength">Must Be Less Than 50 Characters</div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-8">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" formControlName=username
+                                [ngClass]="{ 'is-invalid': submitted && f.username.errors }" >
+                                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                    <div *ngIf="f.username.errors.required">Required</div>
+                                    <div *ngIf="f.username.errors.maxlength">Must Be Less Than 50 Characters</div>
+                                    <div *ngIf="f.username.errors.minlength">Must Be At Least 6 Characters</div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" id=email>
+                                <input type="email" class="form-control" formControlName=email 
+                                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Required</div>
+                                    <div *ngIf="f.email.errors.email">Enter A Valid Email</div>
+                                    <div *ngIf="f.email.errors.maxlength">Must Be Less Than 50 Characters</div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id=password>
+                                <input type="password" class="form-control" formControlName=password
+                                [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Required</div>
+                                    <div *ngIf="f.password.errors.minlength">Must Be At Least 6 Characters</div>
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="passwordConfirm">Confirm Password</label>
-                                <input type="password" class="form-control" id=passwordConfirm>
+                                <input type="password" class="form-control" formControlName=passwordConfirm
+                                [ngClass]="{ 'is-invalid': submitted && f.passwordConfirm.errors }" >
+                                <div *ngIf="submitted && f.passwordConfirm.errors" class="invalid-feedback">
+                                    <div *ngIf="f.passwordConfirm.errors.required">Required</div>
+                                    <div *ngIf="f.passwordConfirm.errors.minlength">Must Be At Least 6 Characters</div>
+                                    <div *ngIf="f.passwordConfirm.errors.mustMatch"> Must Match Password</div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-row">
@@ -42,11 +80,26 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="studentId">Student Id</label>
-                                <input type="text" class="form-control" id=studentId>
+                                <input type="text" class="form-control" formControlName=studentId
+                                [ngClass]="{ 'is-invalid': submitted && f.studentId.errors }">
+                                <div *ngIf="submitted && f.studentId.errors" class="invalid-feedback">
+                                    <div *ngIf="f.studentId.errors.required">Required</div>
+                                </div>
+                                <div *ngIf="submitted && f.studentId.errors" class="invalid-feedback">
+                                    <div *ngIf="f.studentId.errors.minlength || f.studentId.errors.maxlength">Student ID must be 8 digits</div>
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="confirmStudentId">Confirm Student Id</label>
-                                <input type="text" class="form-control" id=confirmStudentId>
+                                <input type="text" class="form-control" formControlName=confirmStudentId
+                                [ngClass]="{ 'is-invalid': submitted && f.confirmStudentId.errors }">
+                                <div *ngIf="submitted && f.confirmStudentId.errors" class="invalid-feedback">
+                                    <div *ngIf="f.confirmStudentId.errors.required">Required</div>
+                                </div>
+                                <div *ngIf="submitted && f.confirmStudentId.errors" class="invalid-feedback">
+                                    <div *ngIf="(f.confirmStudentId.errors.minlength || f.confirmStudentId.errors.maxlength) && !f.confirmStudentId.errors.required">Student ID must be 8 digits</div>
+                                    <div *ngIf="f.confirmStudentId.errors.mustMatch">Must Match Student ID</div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-row">
@@ -76,6 +129,9 @@
                             <div class="form-group">
                                 <button type="submit" class="btn btn-dark">Submit</button>
                             </div>
+                        </div>
+                        <div class="form-row">
+                            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
                         </div>
                     </form>
                 </div>

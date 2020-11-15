@@ -2,22 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth-service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-not-found',
+  templateUrl: './not-found.component.html',
+  styleUrls: ['./not-found.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NotFoundComponent implements OnInit {
 
   constructor(private authService : AuthService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   get isLoggedIn() : boolean {
     return this.authService.isLoggedIn;
-  }
-
-  logout() {
-    this.authService.logout();
   }
 
 }

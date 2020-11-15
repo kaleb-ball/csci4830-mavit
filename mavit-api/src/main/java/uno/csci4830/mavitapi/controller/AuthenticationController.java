@@ -34,9 +34,9 @@ public class AuthenticationController {
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signupRequest) {
         try {
             if (authenticationService.checkUsername(signupRequest.getUsername())) {
-                return ResponseEntity.badRequest().body("Username already in use");
+                return ResponseEntity.status(403).body(new MessageResponse("Username already in use"));
             } else if (authenticationService.checkEmail(signupRequest.getEmail())) {
-                return ResponseEntity.badRequest().body("Email already in use");
+                return ResponseEntity.status(403).body(new MessageResponse("Email already in use"));
             } else {
                 return ResponseEntity.ok(authenticationService.registerUser(signupRequest));
             }
