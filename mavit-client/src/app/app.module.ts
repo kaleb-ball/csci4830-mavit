@@ -14,6 +14,7 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { UnauthorizedComponent } from './common/unauthorized/unauthorized.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
+import { CommentComponent } from './components/comments/comment.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NotFoundComponent } from './common/not-found/not-found.component';
     NavbarComponent,
     HomeComponent,
     UnauthorizedComponent,
-    NotFoundComponent  ],
+    NotFoundComponent,
+    CommentComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
