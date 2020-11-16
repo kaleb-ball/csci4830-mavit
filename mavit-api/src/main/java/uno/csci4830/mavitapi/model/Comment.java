@@ -2,15 +2,11 @@ package uno.csci4830.mavitapi.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.tomcat.jni.Local;
 import uno.csci4830.mavitapi.payload.request.comment.CreateCommentRequest;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-
-import uno.csci4830.mavitapi.payload.request.comment.CreateCommentRequest;
 
 @Getter
 @Setter
@@ -43,25 +39,12 @@ public class Comment {
     {
         setText(ccr.getText());
         setUser(ccr.getUser());
-        setLocalDateTime(LocalDateTime.now());
+        setTime(LocalDateTime.now());
         setEnabled(true);
     }
-    public void setText(String inputText)
-    {
-        text = inputText;
-    }
-    public void setUser(String inputUser)
-    {
-        user = inputUser;
-    }
-    public void setLocalDateTime(LocalDateTime currentTime)
-    {
+
+    private void setTime (LocalDateTime currentTime) {
         dateTime = currentTime;
     }
-    public void setEnabled(Boolean isEnabled)
-    {
-        enabled = isEnabled;
-    }
-
 
 }

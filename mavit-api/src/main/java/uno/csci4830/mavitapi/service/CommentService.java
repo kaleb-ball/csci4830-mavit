@@ -1,6 +1,6 @@
 package uno.csci4830.mavitapi.service;
 
-import uborg.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import uno.csci4830.mavitapi.model.Comment;
 import uno.csci4830.mavitapi.payload.request.comment.CreateCommentRequest;
