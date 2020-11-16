@@ -16,6 +16,10 @@ public class CommentService {
     CommentRepository commentRepository;
 
     public MessageResponse createComment(CreateCommentRequest createCommentRequest) {
+        Comment comment = new Comment(createCommentRequest);
+        commentRepository.save(comment);
+
+
         return new MessageResponse("Comment created successfully");
     }
 

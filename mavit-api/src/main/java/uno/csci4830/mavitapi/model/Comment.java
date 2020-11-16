@@ -2,6 +2,7 @@ package uno.csci4830.mavitapi.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import uno.csci4830.mavitapi.payload.request.comment.CreateCommentRequest;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -29,5 +30,21 @@ public class Comment {
     @NotBlank
     private Boolean enabled;
 
+    public Comment()
+    {
+
+    }
+
+    public Comment(CreateCommentRequest ccr)
+    {
+        setText(ccr.getText());
+        setUser(ccr.getUser());
+        setTime(LocalDateTime.now());
+        setEnabled(true);
+    }
+
+    private void setTime (LocalDateTime currentTime) {
+        dateTime = currentTime;
+    }
 
 }
