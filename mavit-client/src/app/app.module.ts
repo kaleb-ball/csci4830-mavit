@@ -18,6 +18,8 @@ import { CommentComponent } from './components/comments/comment.component';
 import { PageComponent } from './components/page/page.component';
 import { CreateThreadComponent } from './components/create-thread/create-thread.component';
 import { ThreadComponent } from './components/thread/thread.component'
+import { RouterModule } from '@angular/router';
+import { HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
