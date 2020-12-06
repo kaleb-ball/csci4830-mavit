@@ -25,45 +25,64 @@ import java.util.Set;
 public class User {
 
     @Id
-    @GeneratedValue(
-            strategy= GenerationType.IDENTITY,
-            generator="native"
-    )
-    @GenericGenerator(
-            name = "native",
-            strategy = "native"
-    )
+//    @GeneratedValue(
+//            strategy = GenerationType.IDENTITY,
+//            generator = "native"
+//    )
+//    @GenericGenerator(
+//            name = "native",
+//            strategy = "native"
+//    )
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     @NotBlank
-    @Size(max=50)
+    @Size(max = 50)
     private String firstName;
 
     @NotBlank
-    @Size(max=50)
+    @Size(max = 50)
     private String lastName;
 
     @NotBlank
-    @Size(min=6, max=20)
+    @Size(min = 6, max = 20)
     private String username;
 
     @NotBlank
-    @Size(max=50)
+    @Size(max = 50)
     @Email
     private String email;
 
     @NotBlank
-    @Size(min = 6, max=20)
+    @Size(min = 6, max = 20)
     private String password;
 
     @NotBlank
-    @Size(max=8)
+    @Size(max = 8)
     private String studentId;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(	name = "user_roles",
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_colleges",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "college_id"))
+    private Set<College> colleges = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_majors",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "major_id"))
+    private Set<Major> majors = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_universities",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "university_id"))
+    private Set<University> universities = new HashSet<>();
 }

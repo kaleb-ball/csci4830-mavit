@@ -2,6 +2,8 @@ package uno.csci4830.mavitapi.payload.request.authentication;
 
 import lombok.Getter;
 import lombok.Setter;
+import uno.csci4830.mavitapi.model.College;
+import uno.csci4830.mavitapi.model.Major;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -35,5 +37,9 @@ public class SignupRequest {
     private String lastname;
 
     private Set<String> role;
+
+    private Set<Major> majors;
+
+    private Set<College> colleges;
 
 }

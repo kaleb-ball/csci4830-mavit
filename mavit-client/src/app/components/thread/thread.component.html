@@ -1,0 +1,33 @@
+<div class="container h-100 mt-5">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-10">
+            <div class="card mt-5">
+                <div class="panel-heading">
+                    <h4 class="card-title mt-4 mb-4 text-center">{{this.thread.title}}</h4>
+                    <div class="card-body">
+                        <form [formGroup]="commentForm">
+                            <textarea class="form-control" formControlName=text placeholder="write a comment..." rows="3"></textarea>
+                            <br>
+                            <button type="button" class="btn btn-dark pull-right" (click)=post()>Post</button>
+                        </form>
+                        <div class="clearfix"></div>
+                        <hr>
+                        <ul class="media-list">
+                            <div *ngFor="let comment of comments">
+                                <li class="media">
+                                    <div class="media-body">
+                                        <span class="text-muted pull-right">
+                                            <small class="text-muted">{{comment.dateTime | date : 'short'}} </small>
+                                        </span>
+                                        <strong class="text-dark">{{comment.user}}</strong>
+                                        <p>{{comment.text}}</p>
+                                    </div>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

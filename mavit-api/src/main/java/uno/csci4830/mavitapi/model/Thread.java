@@ -1,13 +1,12 @@
 package uno.csci4830.mavitapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import uno.csci4830.mavitapi.payload.request.thread.CreateThreadRequest;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
@@ -15,10 +14,11 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Thread {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
 
     @NotBlank
@@ -27,8 +27,6 @@ public class Thread {
 
     @Size(max=256)
     private String description;
-
-    //Page
 
     @NotBlank
     private String createdBy;
@@ -45,18 +43,11 @@ public class Thread {
     @NotBlank
     private Boolean enabled;
 
-    public Thread()
-    {
-
-    }
-    public Thread(CreateThreadRequest ctr)
-    {
-        setTitle(ctr.getTitle());
-        setDescription(ctr.getDescription());
-        setCreatedBy(ctr.getCreateUsername());
-        setEnabled(true);
-        setCreatedDateTime(LocalDateTime.now());
-
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinTable(	name = "thread_page",
+            joinColumns = @JoinColumn(name = "thread_id"),
+            inverseJoinColumns = @JoinColumn(name = "page_id"))
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Page page;
 
 }

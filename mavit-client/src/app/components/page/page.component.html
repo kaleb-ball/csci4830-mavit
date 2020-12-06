@@ -1,0 +1,30 @@
+<div class="container h-100 mt-5">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-12">
+            <div class="card mt-5">
+                <div class="panel-heading">
+                    <h4 class="card-title mt-4 mb-4 text-center">{{this.pageTitle}}</h4>
+                    <div class="row">
+                        <div class="col text-center">
+                            <button class="btn btn-lg btn-outline-dark mb-3" (click)="openModal()">Create
+                                Thread</button> </div>
+                    </div>
+                    <div class="col-10 mx-auto">
+                        <div *ngFor="let thread of threads">
+                        <div class="card mb-4 text-center mb-5">
+                            <div class="card-body">
+                                    <h2 class="card-title">{{thread.title}}</h2>
+                                    <p class="card-text">{{thread.description}}</p>
+                                    <a href="#" class="btn btn-dark mb-1" [routerLink]="['/thread', thread.id]">View Thread &rarr;</a>
+                                    <div class="card-footer text-muted mb-2">
+                                        Posted on {{thread.editedDateTime | date : 'short'}} by {{thread.editedBy}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

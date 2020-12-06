@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Create Thread</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="onSubmit()" [formGroup]="createThreadForm">
+    <div class="col-10">
+      <div class="form-group">
+        <div class="row">
+          <label for=title>Title</label>
+          <input name="title" class="form-control" type="text" formControlName="title">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <label for=description>Description</label>
+          <textarea name="description" class="form-control" formControlName="description" rows=2></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-outline-dark float-right mb-3">Create</button>
+    </div>
+  </form>
+</div>
+

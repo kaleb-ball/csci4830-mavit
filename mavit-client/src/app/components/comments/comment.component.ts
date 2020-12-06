@@ -5,6 +5,7 @@ import { Comment } from 'src/app/models/comment';
 import { CreateCommentRequest } from 'src/app/payloads/requests/comment-request';
 import { AuthService } from 'src/app/services/auth-service';
 import { CommentService } from 'src/app/services/comment.service';
+import { ThreadService } from 'src/app/services/thread.service';
 
 @Component({
   selector: 'app-comment',
@@ -22,7 +23,7 @@ export class CommentComponent implements OnInit {
   constructor(
     private commentService : CommentService,
     private formBuilder : FormBuilder,
-    private authService : AuthService
+    private authService : AuthService,
   ) { }
 
   ngOnInit(): void {
@@ -31,13 +32,13 @@ export class CommentComponent implements OnInit {
       text : ['', Validators.required]
     })
 
-    this.commentService.getAllComments().subscribe({
-      next : (next : Comment[]) => {
-        this.commentList = next;
-        this.commentList.sort((a,b) => (a.dateTime > b.dateTime) ? -1 : 1)
-        this.commentList;
-      }
-    })
+    // this.commentService.getAllComments().subscribe({
+    //   next : (next : Comment[]) => {
+    //     this.commentList = next;
+    //     this.commentList.sort((a,b) => (a.dateTime > b.dateTime) ? -1 : 1)
+    //     this.commentList;
+    //   }
+    // })
 
   }
 

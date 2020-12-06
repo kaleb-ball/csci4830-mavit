@@ -14,8 +14,8 @@ export class CommentService {
 
   ) { }
 
-  getAllComments () {
-    return this.http.get(this.endpointService.GET_ALL_COMMENTS)
+  getCommentsByThreadId (id : number) {
+    return this.http.get(this.endpointService.GET_COMMENTS_BY_THREAD_ID + '/' + id);
   }
 
   createComment (createComment : CreateCommentRequest) {

@@ -103,25 +103,42 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
+                                <label for="college1">College</label>
+                                <select #college1 id="college1" class="form-control" (change)='college1Select(college1.value)'
+                                formControlName=college1 [ngClass]="{ 'is-invalid': submitted && f.college1.errors }">
+                                    <option selected>Choose...</option>
+                                    <option [ngValue]="college" *ngFor="let college of colleges">{{college.name}}</option>
+                                </select>
+                                <div *ngIf="submitted && f.college1.errors" class="invalid-feedback">
+                                    <div *ngIf="f.college1.errors.mustSelect">Select College</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6" >
                                 <label for="major1">Major</label>
-                                <select id="major1" class="form-control">
+                                <select #major1 id="major1" class="form-control" formControlName=major1 [ngClass]="{ 'is-invalid': submitted && f.major1.errors }">
                                     <option selected>Choose...</option>
-                                    <option>...</option>
+                                    <option  [ngValue]="major" *ngFor="let major of majors1">{{major.name}}</option>
+                                </select>
+                                <div *ngIf="submitted && f.major1.errors" class="invalid-feedback">
+                                    <div *ngIf="f.major1.errors.mustSelect">Select Major</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="college2">College (Optional)</label>
+                                <select #college2 id="college2" class="form-control" (change)='college2Select(college2.value)'
+                                formControlName=college2>
+                                    <option selected>Choose...</option>
+                                    <option [ngValue]="college" *ngFor="let college of colleges">{{college.name}}</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="major2">Major (Optional) </label>
-                                <select id="major2" class="form-control">
+                            <div class="form-group col-md-6">
+                                <label for="major2">Major (Optional)</label>
+                                <select #major2 id="major2" class="form-control" formControlName=major2 >
                                     <option selected>Choose...</option>
-                                    <option>...</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="minor">Minor (Optional)</label>
-                                <select id="minor" class="form-control">
-                                    <option selected>Choose...</option>
-                                    <option>...</option>
+                                    <option [ngValue]="major" *ngFor="let major of majors2">{{major.name}}</option>
                                 </select>
                             </div>
                         </div>

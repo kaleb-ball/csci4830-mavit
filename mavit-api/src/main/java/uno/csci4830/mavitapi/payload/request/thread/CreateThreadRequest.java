@@ -17,5 +17,7 @@ public class CreateThreadRequest {
     @NotBlank
     private String createUsername;
 
-    //Page
+    @NotBlank
+    private Integer pageId;
+
 }

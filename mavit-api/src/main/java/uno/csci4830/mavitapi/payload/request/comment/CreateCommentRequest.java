@@ -14,26 +14,8 @@ public class CreateCommentRequest {
     @NotBlank
     private String user;
 
-    public void setText(String comment_string)
-    {
-        text = comment_string;
-    }
-
-    public void setUser(String user_string)
-    {
-        user = user_string;
-    }
-
-    public String getText()
-    {
-        return text;
-    }
-    public String getUser()
-    {
-        return user;
-    }
-
-    //Add Thread Forgien key later
+    @NotBlank
+    private Integer threadId;
 
 }
 

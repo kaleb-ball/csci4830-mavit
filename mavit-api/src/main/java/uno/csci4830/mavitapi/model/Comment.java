@@ -1,6 +1,8 @@
 package uno.csci4830.mavitapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import uno.csci4830.mavitapi.payload.request.comment.CreateCommentRequest;
 
@@ -11,7 +13,8 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "comments")
+@NoArgsConstructor
+@Table(name = "comment")
 public class Comment {
 
     @Id
@@ -30,21 +33,12 @@ public class Comment {
     @NotBlank
     private Boolean enabled;
 
-    public Comment()
-    {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinTable(	name = "comment_thread",
+            joinColumns = @JoinColumn(name = "comment_id"),
+            inverseJoinColumns = @JoinColumn(name = "thread_id"))
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Thread thread;
 
-    }
-
-    public Comment(CreateCommentRequest ccr)
-    {
-        setText(ccr.getText());
-        setUser(ccr.getUser());
-        setTime(LocalDateTime.now());
-        setEnabled(true);
-    }
-
-    private void setTime (LocalDateTime currentTime) {
-        dateTime = currentTime;
-    }
 
 }

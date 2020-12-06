@@ -17,6 +17,7 @@ import uno.csci4830.mavitapi.payload.request.authentication.SignupRequest;
 import uno.csci4830.mavitapi.payload.response.JwtResponse;
 import uno.csci4830.mavitapi.payload.response.MessageResponse;
 import uno.csci4830.mavitapi.repository.RoleRepository;
+import uno.csci4830.mavitapi.repository.UniversityRepository;
 import uno.csci4830.mavitapi.repository.UserRepository;
 import uno.csci4830.mavitapi.security.jwt.JwtUtils;
 import uno.csci4830.mavitapi.security.services.UserDetailsImpl;
@@ -43,6 +44,9 @@ public class AuthenticationService {
 
     @Autowired
     RoleRepository roleRepository;
+
+    @Autowired
+    UniversityRepository universityRepository;
 
     public JwtResponse authenticateUser(LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
@@ -83,18 +87,25 @@ public class AuthenticationService {
         return new MessageResponse("Fix");
     }
 
-    private User populatePersonalDetails(User user, SignupRequest signupRequest) {
+    private void populatePersonalDetails(User user, SignupRequest signupRequest) {
         user.setEmail(signupRequest.getEmail());
         user.setUsername(signupRequest.getUsername());
         user.setFirstName(signupRequest.getFirstname());
         user.setLastName(signupRequest.getLastname());
         user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
-        return user;
     }
 
-    private User populateSchoolDetails(User user, SignupRequest signupRequest) {
+    private void populateSchoolDetails(User user, SignupRequest signupRequest) {
+        user.getUniversities().add(universityRepository.findFirstByCode("UNO"));
+        populateForEngineering(user, signupRequest);
         user.setStudentId(signupRequest.getStudentId());
-        //Add Other Fields
-        return user;
+        user.setColleges(signupRequest.getColleges());
+        user.setMajors(signupRequest.getMajors());
+    }
+
+    private void populateForEngineering(User user, SignupRequest signupRequest) {
+        if (signupRequest.getColleges().stream().anyMatch(college -> college.getCode().equals("ENG"))) {
+            user.getUniversities().add(universityRepository.findFirstByCode("UNL"));
+        }
     }
 }

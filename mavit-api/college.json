@@ -1,0 +1,26 @@
+[
+  {
+    "name":"Arts and Science",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Information, Science, and Technology",
+    "collegeCode":"IST"
+  },
+  {
+    "name":"Education",
+    "collegeCode":"EDU"
+  },
+  {
+    "name":"Engineering",
+    "collegeCode":"ENG"
+  },
+  {
+    "name":"Public Affairs and Community Service",
+    "collegeCode":"CPACS"
+  },
+  {
+    "name":"Communication, Fine Arts and Media",
+    "collegeCode":"CFMA"
+  }
+]

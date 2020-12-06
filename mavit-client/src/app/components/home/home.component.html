@@ -1,1 +1,62 @@
-<app-comment></app-comment>
+<!-- <app-comment></app-comment> -->
+<div class="container h-100 mt-5">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-12">
+            <div class="card mt-5 mb-5">
+                <div class="card-body">
+                    <h4 class="card-title mb-4 text-center">Welcome {{username}}</h4>
+                    <div class=row>
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-header">Universities</div>
+                                <div class=" mt-2 mb-2 text-center">
+                                    <div class="card-body">
+                                        <div *ngFor="let uni of universities">
+                                            <h5 class="card-title" [routerLink]="['/page', uni.page.id]"> {{uni.name}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-header">Colleges</div>
+                                <div class=" mt-2 mb-2 text-center">
+                                    <div class="card-body">
+                                        <div *ngFor="let college of colleges">
+                                            <h5 class="card-title" [routerLink]="['/page', college.page.id]">{{college.name}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-header">Majors</div>
+                                <div class=" mt-2 mb-2 text-center">
+                                    <div class="card-body">
+                                        <div *ngFor="let major of majors">
+                                            <h5 class="card-title" [routerLink]="['/page', major.page.id]">{{major.name}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-header">Minors</div>
+                                <div class=" mt-2 mb-2 text-center">
+                                    <div class="card-body">
+                                        <h5 class="card-title">History</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

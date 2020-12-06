@@ -25,10 +25,10 @@ public class CommentController {
 //    @PostMapping("/delete")
 //    ResponseEntity<?> deleteComment(@RequestBody )
 
-    @GetMapping("/getAllComments")
-    ResponseEntity<?> getAllComments() {
+    @GetMapping("/commentsByThreadId/{id}")
+    ResponseEntity<?> getAllComments(@PathVariable Integer id) {
         try {
-            return ResponseEntity.ok(commentService.getAllComments());
+            return ResponseEntity.ok(commentService.getCommentsByThreadId(id));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

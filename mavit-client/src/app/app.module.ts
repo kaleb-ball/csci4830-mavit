@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -14,7 +14,10 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { UnauthorizedComponent } from './common/unauthorized/unauthorized.component';
 import { NotFoundComponent } from './common/not-found/not-found.component';
-import { CommentComponent } from './components/comments/comment.component'
+import { CommentComponent } from './components/comments/comment.component';
+import { PageComponent } from './components/page/page.component';
+import { CreateThreadComponent } from './components/create-thread/create-thread.component';
+import { ThreadComponent } from './components/thread/thread.component'
 
 @NgModule({
   declarations: [
@@ -25,13 +28,18 @@ import { CommentComponent } from './components/comments/comment.component'
     HomeComponent,
     UnauthorizedComponent,
     NotFoundComponent,
-    CommentComponent  ],
+    CommentComponent,
+    PageComponent,
+    CreateThreadComponent,
+    ThreadComponent  
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModalModule
   ],
   providers: [
     FormBuilder,

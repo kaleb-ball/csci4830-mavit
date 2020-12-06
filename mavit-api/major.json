@@ -1,0 +1,183 @@
+[
+  {
+    "name":"Computer Science",
+    "collegeCode":"IST"
+  },
+  {
+    "name":"Bioinformatics",
+    "collegeCode":"IST"
+  },
+  {
+    "name":"Management Information Systems",
+    "collegeCode":"IST"
+  },
+  {
+    "name":"Cybersecurity",
+    "collegeCode":"IST"
+  },
+  {
+    "name":"IT Innovation",
+    "collegeCode":"IST"
+  },
+
+  {
+    "name":"Biology",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Black Studies",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Chemistry",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Economics",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"English",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Environmental Studies",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Geography",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Geology",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"History",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"International Studies",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Latino Studies",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Mathematics",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Medical Humanities",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Neuroscience",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Philosophy",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Physics",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Political Science",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Psychology",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Religious Studies",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Sociology",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Women's and Gender Studies",
+    "collegeCode":"AS"
+  },
+  {
+    "name":"Accounting",
+    "collegeCode":"BA"
+  },
+  {
+    "name":"Economics",
+    "collegeCode":"BA"
+  },
+  {
+    "name":"Management",
+    "collegeCode":"BA"
+  },
+  {
+    "name":"Marketing",
+    "collegeCode":"BA"
+  },
+  {
+    "name":"Communication Studies",
+    "collegeCode":"CFMA"
+  },
+  {
+    "name":"Marketing",
+    "collegeCode":"CFMA"
+  },
+  {
+    "name":"Music",
+    "collegeCode":"CFMA"
+  },
+  {
+    "name":"Theatre",
+    "collegeCode":"CFMA"
+  },
+  {
+    "name":"Marketing",
+    "collegeCode":"CFMA"
+  },
+  {
+    "name":"Teacher Education",
+    "collegeCode":"EDU"
+  },
+  {
+    "name":"Special Education",
+    "collegeCode":"EDU"
+  },
+  {
+    "name":"Health and Kinesiology",
+    "collegeCode":"EDU"
+  },
+  {
+    "name":"Architectural Engineering",
+    "collegeCode":"ENG"
+  },
+  {
+    "name":"Civil Engineering",
+    "collegeCode":"ENG"
+  },
+  {
+    "name":"Electrical Engineering",
+    "collegeCode":"ENG"
+  },
+  {
+    "name":"Computer Engineering",
+    "collegeCode":"ENG"
+  },
+  {
+    "name":"Aviation",
+    "collegeCode":"CPACS"
+  },
+  {
+    "name":"Criminal Justice",
+    "collegeCode":"CPACS"
+  },
+  {
+    "name":"Emergency Management",
+    "collegeCode":"CPACS"
+  }
+]
