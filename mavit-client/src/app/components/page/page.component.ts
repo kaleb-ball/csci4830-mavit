@@ -48,10 +48,17 @@ export class PageComponent implements OnInit {
       this.pageTitle = response.title;
     })
 
+    this.getThreads();
+    // this.threadService.getThreadByPageId(this.id).subscribe((response : Thread[])=>{
+    //   this.threads = response.sort((a,b) => (a.editedDateTime > b.editedDateTime) ? -1 : 1);
+    // })
+
+  }
+
+  getThreads() {
     this.threadService.getThreadByPageId(this.id).subscribe((response : Thread[])=>{
       this.threads = response.sort((a,b) => (a.editedDateTime > b.editedDateTime) ? -1 : 1);
     })
-
   }
 
 
@@ -61,11 +68,13 @@ export class PageComponent implements OnInit {
     request.createUsername = this.authService.currentUserValue.username
     const modalRef = this.modalService.open(CreateThreadComponent)
     modalRef.componentInstance.request = request;
-    // modalRef.result.then(() => {
-    //   this.router.navigate(['page'])
-    // })
+    modalRef.result.then(() => {
+      // this.router.navigate(['/page/' + this.id])
+      setInterval(()=> {
+        this.getThreads();
+      },1000);
+    })
     // modalRef.result.finally({
-    //   window.location.reload()
 
     // })
   }

@@ -39,14 +39,18 @@ export class ThreadComponent implements OnInit {
       text : ['', Validators.required]
     })
 
+    this.getComments();
+
+    this.threadSevice.getThreadById(this.threadId).subscribe((next : Thread) => {
+        this.thread = next;
+    })
+  }
+
+  getComments() {
     this.commentService.getCommentsByThreadId(this.threadId).subscribe({
       next : (next : Comment[]) => {
         this.comments = next.sort((a,b) => (a.dateTime > b.dateTime) ? -1 : 1)
       }
-    })
-
-    this.threadSevice.getThreadById(this.threadId).subscribe((next : Thread) => {
-        this.thread = next;
     })
   }
 
@@ -57,18 +61,21 @@ export class ThreadComponent implements OnInit {
     commentRequest.user = this.authService.currentUserValue.username
     commentRequest.threadId = this.threadId;
 
-    let comment = new Comment()
-    comment.dateTime = formatDate(new Date(), 'short', 'en-US');
-    comment.user = commentRequest.user
-    comment.text = commentRequest.text
+    // let comment = new Comment()
+    // comment.dateTime = formatDate(new Date(), 'short', 'en-US');
+    // comment.user = commentRequest.user
+    // comment.text = commentRequest.text
 
-    this.comments.unshift(comment);
+    // this.comments.unshift(comment);
 
     this.commentService.createComment(commentRequest).subscribe({
       error : error => {
         this.error = error
       }
     })
+    setInterval(()=> {
+      this.getComments();
+    },1000);
     this.commentForm.reset()
 
   }
