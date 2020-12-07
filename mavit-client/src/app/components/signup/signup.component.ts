@@ -45,8 +45,8 @@ export class SignupComponent implements OnInit {
       passwordConfirm : ['', [Validators.required,Validators.minLength(6), Validators.maxLength(20)]],
       studentId: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
       confirmStudentId : ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
-      //major1: [{value : 'Choose...', disabled: true }],
-      major2: [{value : 'Choose...', disabled: true }],
+      major1: [{value : 'Choose...', disabled: true }],
+      //major2: [{value : 'Choose...', disabled: true }],
       college1:['Choose...'],
       //college2:['Choose...']
 
